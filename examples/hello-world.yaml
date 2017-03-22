@@ -1,12 +1,36 @@
 ---
+grids:
+    __root__:
+        rows:
+            0:
+                weight: 1
+        cols:
+            2:
+                weight: 1
+    fraTest:
+        rows: 
+            0: { weight: 1 }
+        cols:
+            0: { weight: 1 }
+    
+
 widgets:
-    Label(0, 0-4):      # Syntax: WidgetType(row, columnStart-columnEnd)
-        text: Hello, world! 
+    Label(0, 0-4)(NS):      # Syntax: WidgetType(row, columnStart-columnEnd)
+        text: Hello! 
         padx: 5
         pady: 5
 
-    Button(1,2) cmdConfirm: # Syntax: WidgetType(row,col) WidgetName
+    Button(1,2)(NE) cmdConfirm: # Syntax: WidgetType(row,col) WidgetName
         text: Confirm
+
+    Label(0-1,5):
+        text: World!
+
+    Frame(2, 0-5)(NEWS) fraTest:
+        bg: green
+        contains:
+            Label(0,0)(E):
+                text: Contained Hello!
 
 bind:
     cmdConfirm:

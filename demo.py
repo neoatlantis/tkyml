@@ -19,7 +19,6 @@ data = open(filename, 'r').read()
 root = Tk()
 
 frame = TKYML(root, data)
-frame.pack()
 
 frame.cmdConfirm_click = lambda e: exit()
 

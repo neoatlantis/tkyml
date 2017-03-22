@@ -1,0 +1,100 @@
+---
+grids:
+    __root__:
+        rows:
+            0:
+                weight: 1
+            1:
+                weight: 0
+        cols:
+            0: 
+                weight: 1
+    fraStatusBar:
+        rows: 
+            0: { weight: 1 }
+        cols:
+            0: { weight: 1 }
+    fraMain:
+        rows:
+            0: { weight: 1 }
+            1: { weight: 2 }
+            2: { weight: 2 }
+            3: { weight: 2 }
+        cols:
+            0: { weight: 1 }
+            1: { weight: 1 }
+            2: { minsize: 5 }
+    fraNuclear1: &location-entry-grid
+        rows:
+            0: { weight: 1 }
+            1: { weight: 1 }
+            2: { weight: 1 }
+        cols:
+            0: { weight: 1 }
+            1: { weight: 1 }
+    fraNuclear2:
+        <<: *location-entry-grid
+    fraNuclear3:
+        <<: *location-entry-grid
+    fraCommand:
+        rows: 
+            1: { weight: 1}
+        cols:
+            0: { weight: 1}
+    
+
+widgets:
+    Frame(0,0)(NEWS) fraMain:
+        bg: yellow
+        contains:
+            Label(0,0-2):
+                text: Nuclear Missile Launch Control
+                font: Times 30 bold
+                bg: yellow
+            Frame(1,1)(NEW) fraNuclear1: &location-entry
+                bg: red
+                contains:
+                    Label(0,0-1)(NEWS):
+                        bg: yellow
+                        text: |
+                            Warning! Confirm the target location 3 times
+                            before pressing the confirm button!
+                    Label(1, 0)(E):
+                        text: Target Latitude
+                    Label(2, 0)(E):
+                        text: Target Longitude
+                    Label(3, 0)(E):
+                        text: Authorization Code
+                    Entry(1,1)(EW):
+                    Entry(2,1)(WE):
+                    Entry(3,1)(WE):
+            Frame(2,1)(NEW) fraNuclear2:
+                <<: *location-entry
+                bg: blue
+            Frame(3,1)(NEW) fraNuclear3:
+                <<: *location-entry
+                bg: orange
+
+            Frame(1-3,0)(NEWS) fraCommand:
+                bg: yellow
+                padx: 10
+                pady: 10
+                contains:
+                    Label(0,0)(NEWS):
+                        text: Command Center Communication
+                        font: Times 20 bold
+                        bg: yellow
+                    Text(1,0)(NEWS):
+                        width: 20
+                        bg: black
+                        fg: "#00FF00"
+                        font: Monospace 14 bold
+
+
+    Frame(1, 0)(NEWS) fraStatusBar:
+        bg: green
+        contains:
+            Label(0,0)(E):
+                text: C3I ready...
+
+bind:
