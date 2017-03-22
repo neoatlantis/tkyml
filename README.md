@@ -56,8 +56,8 @@ nest widgets using Frames:
             Label(1,0):
                 text: hello # some text below the blue frame
 
-**NOTICE**: all named widgets, even they are nested in another widget, are
-attached to the top parent(the TKYML instance). Their names have to be unique.
+**NOTICE**: all named widgets, even if nested in another widget, are attached
+to the top parent(the TKYML instance). Their names have to be unique.
 
 ### Event Bindings
 
@@ -67,14 +67,14 @@ Specify the events you want to `bind:`
         widgetName1:
             - click     # bind the click event to `widgetName1`
 
-The event handler will be assumed to be `widgetName1_click`. You need to write
-a function and associate it to the TKYML instance. If the callback function
-doesn't exist, TKYML will simply do nothing.
+The event handler will be assumed like `widgetName1_click`. You need to write a
+function and associate it to the TKYML instance under this name. If the
+callback function doesn't exist, TKYML will simply do nothing.
 
 ### Grids
 
 By default grids are not adjusted when window is resized. You need to configure
-grids' rows and columns, and assign them **weights**. To do this, put values
+grids' rows and columns, and assign them **weight**s. To do this, put values
 in `grids:` section:
 
     grids:
