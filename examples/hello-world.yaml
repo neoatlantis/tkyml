@@ -1,0 +1,13 @@
+---
+widgets:
+    Label(0, 0-4):      # Syntax: WidgetType(row, columnStart-columnEnd)
+        text: Hello, world! 
+        padx: 5
+        pady: 5
+
+    Button(1,2) cmdConfirm: # Syntax: WidgetType(row,col) WidgetName
+        text: Confirm
+
+bind:
+    cmdConfirm:
+        - click
